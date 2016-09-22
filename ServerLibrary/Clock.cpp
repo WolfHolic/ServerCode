@@ -65,11 +65,12 @@ wstr_t Clock::nowTimeWithMilliSec(WCHAR *fmt)
 	milliseconds ms = duration_cast<milliseconds>(point.time_since_epoch());
 
 	seconds s = duration_cast<seconds>(ms);
-	tick_t t = s.count();std::size_t fractionalSeconds = ms.count() % 1000;
+	tick_t t = s.count();
+	std::size_t fractionalSeconds = ms.count() % 1000;
 	array<WCHAR, SIZE_8> milliStr;
 	snwprintf(milliStr, L"%03d", (int)(fractionalSeconds));
 #endif
-    wstr_t timeString = this->tickToStr(this->systemTick(), fmt);
+	wstr_t timeString = this->tickToStr(this->sysrtemTick(), fmt);
     timeString += L".";
 	timeString += milliStr.data();
     return timeString;
@@ -77,12 +78,12 @@ wstr_t Clock::nowTimeWithMilliSec(WCHAR *fmt)
 
 wstr_t Clock::today()
 {
-    return this->tickToStr(this->systemTick(), DATE_FORMAT);
+	return this->tickToStr(this->sysrtemTick(), DATE_FORMAT);
 }
 
 wstr_t Clock::tomorrow()
 {
-    return this->tickToStr(this->systemTick() + DAY_TO_TICK(1), DATE_FORMAT);
+	return this->tickToStr(this-sysrtemTick() + DAY_TO_TICK(1), DATE_FORMAT);
 }
 
 wstr_t Clock::yesterday()
