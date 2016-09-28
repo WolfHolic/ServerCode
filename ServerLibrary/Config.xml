@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<App>
+  <Name>Login Server</Name>
+  <Server>
+    <IP>127.0.0.1</IP>
+    <Port>9000</Port>
+    <ThreadCount>5</ThreadCount>
+  </Server>
+  <Terminal>
+    <DBAgent>
+      <IP>127.0.0.1</IP>
+      <Port>9100</Port>
+    </DBAgent>
+  </Terminal>
+  <Log>
+    <Path>./Log/LoginLog.log</Path>
+    <Prefix>System</Prefix>
+    <Type>WithFile</Type>
+  </Log>
+  <Task>
+    <ThreadCount>5</ThreadCount>
+  </Task>
+  <Contents>
+    <ThreadCount>5</ThreadCount>
+  </Contents>
+</App>
