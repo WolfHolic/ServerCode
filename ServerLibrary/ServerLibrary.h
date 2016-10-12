@@ -2,11 +2,11 @@
 #include "stdafx.h"
 
 #pragma comment(lib, "ws2_32.lib")
-#pragma comment(lib, "mswsock.lib")
-#pragma comment(lib, "Winmm.lib")
+#pragma comment(lib,"mswsock.lib")
+#pragma comment(lib,"Winmm.lib")
 
-#include <Ws2tcpip.h>
-#include <WinSock2.h>
+#include <WS2tcpip.h>
+#include <winsock2.h>
 #include <MSWSock.h>
 #include <mmsystem.h>
 
@@ -36,7 +36,9 @@
 #include <random>
 #include <typeinfo>
 
-//공용 매크로
+#include <array>
+#include <map>
+
 #if _DEBUG
 #define CONTEXT_SWITCH			Sleep(1)
 #else
@@ -45,4 +47,18 @@
 
 typedef void(*Function)(void *);
 
-//기타 유틸
+#include "Shutdown.h"
+
+#include "./Util/tinyXml/tinyxml.h"
+#include "./Util/tinyXml/tinystr.h"
+
+#include "./Util/Clock.h"
+#include "./Util/Random.h"
+#include "./Util/Singleton.h"
+#include "./Util/Type.h"
+#include "./Util/Util.h"
+
+#include "Util\Lock.h"
+#include "Util\Thread.h"
+#include "Util\Logger.h"
+#include "Util\Config.h"
